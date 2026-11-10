@@ -1,0 +1,460 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+  color: #222;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: #20243a;
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin-bottom: 40px;
+  color: #7c83ff;
+}
+
+.sidebar nav p {
+  padding: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.sidebar nav p:hover,
+.sidebar nav p.active {
+  background: #353a55;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.user-email {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  padding: 40px;
+}
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+header p {
+  color: #777;
+}
+
+.profile-info {
+  color: #6268e8;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 35px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  color: #777;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  font-size: 30px;
+}
+
+.tasks {
+  background: white;
+  padding: 30px;
+  margin-top: 35px;
+  border-radius: 12px;
+}
+
+.tasks h2 {
+  margin-bottom: 15px;
+}
+
+.tasks p {
+  color: #888;
+  margin-bottom: 20px;
+}
+
+button {
+  background: #6268e8;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #484fc5;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.task-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.task-form input,
+.task-form textarea,
+.task-form select,
+.filter-section input,
+.filter-section select,
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+
+.task-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.task-form label {
+  font-weight: 600;
+  margin-bottom: -5px;
+}
+
+.task-form button {
+  align-self: flex-start;
+  margin-top: 5px;
+}
+
+.filter-section {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.filter-section input {
+  flex: 1;
+}
+
+.filter-section select {
+  max-width: 200px;
+}
+
+.task-list {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.task-item {
+  background: #f8f9ff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e5e7f0;
+  overflow-wrap: anywhere;
+}
+
+.task-item h3 {
+  margin-bottom: 12px;
+}
+
+.task-item p {
+  margin-bottom: 10px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.delete-btn {
+  background: #e74c3c;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  background: #eee;
+  margin-top: 5px;
+}
+
+.status-badge.pending {
+  background: #fff0cf;
+  color: #996600;
+}
+
+.status-badge.in-progress {
+  background: #e1e8ff;
+  color: #344db3;
+}
+
+.status-badge.completed {
+  background: #d8f5df;
+  color: #23753b;
+}
+
+.empty-message {
+  margin-top: 25px;
+  color: #888;
+}
+
+.message-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background: #e8f0ff;
+  color: #344db3;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.message-box button {
+  padding: 3px 10px;
+}
+
+.settings-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+  overflow-wrap: anywhere;
+}
+
+.settings-info strong {
+  min-width: 100px;
+}
+
+.settings-section .logout-btn {
+  margin-top: 15px;
+}
+
+.logout-btn {
+  background: #e74c3c;
+  width: 100%;
+}
+
+.logout-btn:hover {
+  background: #c0392b;
+}
+
+/* Authentication */
+
+.auth-container,
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #f4f6fb;
+}
+
+.auth-card {
+  background: white;
+  width: 100%;
+  max-width: 420px;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+.auth-card h1,
+.loading-screen h2 {
+  color: #6268e8;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+.auth-card h2 {
+  margin-bottom: 25px;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-card label {
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.auth-card button {
+  margin-top: 10px;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 25px;
+  color: #777;
+}
+
+.auth-switch span {
+  color: #6268e8;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 13px;
+}
+
+.loading-screen {
+  flex-direction: column;
+}
+
+.loading-screen p {
+  color: #777;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .main-content {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 180px;
+    padding: 20px 12px;
+  }
+
+  .filter-section {
+    flex-direction: column;
+  }
+
+  .filter-section select {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .sidebar h2 {
+    margin-bottom: 15px;
+  }
+
+  .sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .sidebar nav p {
+    padding: 10px;
+    margin: 0;
+    font-size: 13px;
+  }
+
+  .sidebar-bottom {
+    margin-top: 15px;
+  }
+
+  .main-content {
+    padding: 18px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tasks {
+    padding: 20px;
+  }
+
+  .auth-card {
+    padding: 25px;
+  }
+}
